@@ -7,7 +7,7 @@
 
 ---
 
-<div style="text-align: center">
+<div style="align: center">
 
 | 팀원 | 역할 |
 |:-:|:-:|
