@@ -40,8 +40,8 @@
 ## 사이트 구조
 ![](https://github.com/labory4302/K-Dragon_Project/blob/master/site.jpg)
 
-
-<table style="text-align: center;">
+<div style="text-align: center;" >
+<table>
     <tr>
         <td>팀원</td><td>제목</td>
     </tr>
@@ -49,3 +49,4 @@
         <td>권용</td><td>게시판기능, 전체적인UI, 프로그램통합, DB구축</td>
     </tr>
 </table>
+</div>
