@@ -40,7 +40,7 @@
 ## 사이트 구조
 ![](https://github.com/labory4302/K-Dragon_Project/blob/master/site.jpg)
 
-<div style="text-align: center;" >
+<div style="margin-left:20%;">
 <table>
     <tr>
         <td>팀원</td><td>제목</td>
