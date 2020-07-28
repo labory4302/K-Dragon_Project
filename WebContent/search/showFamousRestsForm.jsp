@@ -89,8 +89,11 @@ if (search != "") {
 <meta charset="UTF-8">
 <title>검색된 맛집 표시</title>
 <style>
-body {
-	background-image: url('../images/bc.png');
+body{
+background-image:url('../images/aa222.jpg');
+background-repeat: no=repeat;
+background-attachment: fixed;
+background: cover;
 }
 
 .font {
@@ -322,7 +325,7 @@ th, td {
 			setTimeout(function() {
 				// 재접속
 				webSocket = connectWebSocket(
-						"ws://192.168.0.29:8088/food/broadsocket",
+						"ws://192.168.0.21:8088/FamousRest/broadsocket",
 						message, open, close, error);
 			});
 		}
@@ -341,7 +344,7 @@ th, td {
 		};
 		// 웹 소켓 생성, 소켓을 여는 서버의 IP 주소와 톰캣 서버 포트 넣어줘야 합니다.
 		var webSocket = connectWebSocket(
-				"ws://192.168.0.29:8088/food/broadsocket", message,
+				"ws://192.168.0.21:8088/FamousRest/broadsocket", message,
 				open, close, error);
 		// Send 버튼을 누르면 호출되는 함수
 		function sendMessage() {
