@@ -1,0 +1,166 @@
+create table board(
+no number(10),
+title VARCHAR2(2000),
+username VARCHAR2(30),
+boardcontent VARCHAR2(2000),
+pubdate date,
+likeup varchar(2000),
+PRIMARY key(no)
+);
+
+create table boardcomment(
+no number(10),
+no_id number(10),
+username VARCHAR2(30),
+bcomment varchar2(2000),
+pubdate date,
+PRIMARY key(no_id),
+FOREIGN key(no) REFERENCES board (no)
+);
+
+create SEQUENCE seq_board_no
+increment by 1
+start with 1;
+
+create SEQUENCE seq_comment_no
+increment by 1
+start with 1;
+
+create table usera(
+userid varchar2(500),
+userpassword varchar2(500),
+username varchar2(500),
+usergender varchar2(500),
+useremail varchar2(500)
+);
+
+CREATE TABLE famousRest (
+rest_no NUMBER not NULL,
+rest_name VARCHAR2(100) not NULL,
+category VARCHAR2(30),
+restrating NUMBER,
+address VARCHAR2(1000),
+phone_number VARCHAR2(30),
+price_range NUMBER,
+parking_status VARCHAR2(30),
+delivery_status VARCHAR2(30),
+start_business DATE,
+close_business DATE,
+menu VARCHAR2(300),
+PRIMARY KEY(rest_no)
+);
+
+CREATE TABLE review (
+review_no NUMBER not NULL,
+rest_no NUMBER,
+content VARCHAR2(2000),
+userrating NUMBER,
+creation_date DATE,
+userid VARCHAR2(50),
+PRIMARY KEY(review_no),
+CONSTRAINT c_review_fk FOREIGN KEY (rest_no)
+REFERENCES famousRest(rest_no)
+);
+
+CREATE SEQUENCE seq_famousrest_no
+INCREMENT BY 1
+START WITH 1;
+
+CREATE SEQUENCE seq_review_no
+INCREMENT BY 1 
+START WITH 1;
+
+create table userdb(
+user_num number(5),
+name varchar2(50),
+password varchar2(50),
+nick_name varchar2(50),
+PRIMARY KEY(user_num)
+);
+
+CREATE SEQUENCE seq_user_num
+INCREMENT BY 1
+START WITH 1;
+
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '동천홍', '중식', 0, '충청남도 천안시 동남구 중앙동 명동길 45-1', '041-551-4003', 6000, '불가', '가능',  to_date('12:00','hh24:mi'), to_date('20:00','hh24:mi'), '중화요리, 짜장면, 짬뽕');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '맘스터치(천안역점)', '양식', 0, '충청남도 천안시 동남구 대흥동 299-10', '041-566-9289', 6000, '불가', '가능',  to_date('11:00','hh24:mi'), to_date('22:00','hh24:mi'), '햄버거,치킨');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '마늘떡볶이', '분식', 0, '충청남도 천안시 동남구 대흥동 대흥동  62-45', '041-569-6979', 3000, '불가', '불가',  to_date('10:00','hh24:mi'), to_date('21:00','hh24:mi'), '마늘떡볶이, 김밥, 순대, 튀김');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '서브웨이(천안역점)', '양식', 0, '충청남도 천안시 동남구 대흥동 3 통 5 반', '041-555-0071', 6000, '불가', '가능',  to_date('11:00','hh24:mi'), to_date('23:00','hh24:mi'), '샌드위치');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '병천순대국밥', '한식', 0, '충청남도 천안시 동남구 중앙동 62-5', '없음', 6000, '불가', '불가',  to_date('10:00','hh24:mi'), to_date('21:00','hh24:mi'), '순대국, ');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '옛날짜장', '중식', 0, '충청남도 천안시 동남구 문화동 168-7', '041-555-8848', 4000, '불가', '가능',  to_date('11:00','hh24:mi'), to_date('21:00','hh24:mi'), '중화요리, 짜장면, 짬뽕');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '롯데리아(천안역사)', '양식', 0, '충청남도 천안시 동남구 대흥동 57-1', '041-551-3369', 6000, '불가', '가능',  to_date('11:00','hh24:mi'), to_date('21:00','hh24:mi'), '햄버거, 치킨, 패스트푸드');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '화성식당', '한식', 0, '충청남도 천안시 동남구 대흥동 85', '041-552-8934', 10000, '불가', '불가',  to_date('11:00','hh24:mi'), to_date('21:00','hh24:mi'), '오삼불고기, 제육볶음');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '조양식당', '한식', 0, '충청남도 천안시 동남구 대흥동 79-2', '041-551-3369', 10000, '불가', '불가',  to_date('11:00','hh24:mi'), to_date('21:00','hh24:mi'), '오삼불고기');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '오복갈비(천안역 본점)', '한식', 0, '충청남도 천안시 동남구 중앙동 공설시장3길 11', '041-562-8134', 10000, '가능', '가능',  to_date('16:00','hh24:mi'), to_date('21:00','hh24:mi'), '소갈비, 국물갈비');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '마운틴피시텔레스토랑', '양식', 0, '충청남도 천안시 동남구 대흥동95', '041-555-3612', 10000, '불가', '불가',  to_date('11:00','hh24:mi'), to_date('23:00','hh24:mi'), '인도음식 전문점, 닭요리');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '달식당', '일식', 0, '충청남도 천안시 동남구 대흥동 134', '041-557-2266', 7500, '불가', '가능',  to_date('10:00','hh24:mi'), to_date('21:00','hh24:mi'), '돈까스, 소바, 우동, 김밥');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '석산장', '한식', 0, '충청남도 천안시 동남구 문화동 30-7', '041-551-7230', 12000, '불가', '불가',  to_date('10:00','hh24:mi'), to_date('21:00','hh24:mi'), '물갈비, 돼지갈비');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '천안옛날호두과자', '한식', 0, '충청남도 천안시 동남구 중앙동 대흥로 237-1', '041-561-5000', 5500, '불가', '가능',  to_date('07:30','hh24:mi'), to_date('23:00','hh24:mi'), '호두과자, 튀김소보로');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '집밥돈선생', '한식', 0, '충청남도 천안시 동남구 대흥동 6-3', '041-552-5289', 6000, '불가', '불가',  to_date('09:00','hh24:mi'), to_date('21:30','hh24:mi'), '백반, 제육볶음, 부대찌개');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '얌샘', '분식', 0, '충청남도 천안시 동남구 대흥동 80', '041-555-8788', 7000, '불가', '가능',  to_date('09:00','hh24:mi'), to_date('21:00','hh24:mi'), '돈까스, 오므라이스, 분식, 차돌된장찌개');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '김밥나라', '분식', 0, '천안시 동남구 대흥로 234-1', '041-556-6699', 6000, '불가', '가능',  to_date('09:00','hh24:mi'), to_date('21:00','hh24:mi'), '김밥, 라면, 돈까스, 내장탕');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '아라기', '양식', 0, '충청남도 천안시 동남구 대흥동 80', '0504-458-2616', 7000, '가능', '가능',  to_date('10:00','hh24:mi'), to_date('22:00','hh24:mi'), '분짜, 쌀국수');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '닥게리', '한식', 0, '충청남도 천안시 동남구 대흥동 30-7', '041-566-1614', 7000, '가능', '가능',  to_date('11:00','hh24:mi'), to_date('23:00','hh24:mi'), '냉면, 닭곰탕, 닭개장');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '마약만두 앤 칼국수', '한식', 0, '천안시 충청남도 동남구 대흥동 30-4번지', '041-553-9973', 7000, '불가', '가능',  to_date('07:30','hh24:mi'), to_date('22:00','hh24:mi'), '칼국수, 냉모밀, 꽈배기');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '마라유혹', '중식', 0, '충남 천안시 동남구 대흥로 250', '041-555-2096', 75000, '불가', '가능',  to_date('11:00','hh24:mi'), to_date('23:00','hh24:mi'), '마라거위찜, 마라꽃게');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '마초쉐프', '양식', 0, '충남 천안시 동남구 먹거리11길 31 중앙빌딩 2층 마초쉐프천안점', '041-904-7587', 13000, '불가', '불가',  to_date('11:30','hh24:mi'), to_date('21:00','hh24:mi'), '까르보나라, 쉬림프로제파스타, 스테이크, 피자');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '라크젠', '일식', 0, '충남 천안시 동남구 터미널3길 24 1층 라크젠', '041-555-0508', 9000, '불가', '불가',  to_date('11:30','hh24:mi'), to_date('20:30','hh24:mi'), '텐동, 새우붓카케, 붓카케우동, 냉소바');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, 'j의꽃다방', '일식', 0, '충남 천안시 동남구 먹거리3길 21', '070-4113-3337', 14000, '가능', '불가',  to_date('11:00','hh24:mi'), to_date('23:00','hh24:mi'), '치킨데리야끼, 돈카츠, 스팸김치볶음정식');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '금강산식당', '양식', 0, '충남 천안시 동남구 먹거리3길 21 1층 103호', '070-8624-8689', 15000, '가능', '가능',  to_date('11:00','hh24:mi'), to_date('22:00','hh24:mi'), '통오징어 해물 떡볶이, 스테이크, 파스타, 덮밥');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '웰빙마떡', '분식', 0, '충남 천안시 동남구 먹거리9길 26', '041-552-5432', 3000, '불가', '불가',  to_date('11:00','hh24:mi'), to_date('22:00','hh24:mi'), '떡볶이, 순대, 튀김, 오뎅');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '짚신매운갈비찜', '한식', 0, '충남 천안시 동남구 먹거리10길 13 짚신매운갈비찜 신부점', '041-566-5569', 12000, '가능', '가능',  to_date('10:00','hh24:mi'), to_date('02:00','hh24:mi'), '매운돼지갈비찜, 메운소갈비찜');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '팔팔닭떡볶이', '분식', 0, '충남 천안시 동남구 먹거리9길 19', '010-5688-8454', 7000, '가능', '불가',  to_date('11:30','hh24:mi'), to_date('21:30','hh24:mi'), '닭 떡볶이, 차돌박이 떡볶이, 오징어 떡볶이');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '성환개미집', '한식', 0, '충남 천안시 동남구 문화로 33-1', '041-523-3003', 8000, '가능', '불가',  to_date('10:00','hh24:mi'), to_date('22:00','hh24:mi'), '전복아구뚝배기, 낙지돌솥비빔밥, 순두부뚝배기');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '방콕쌀국수', '양식', 0, '충남 천안시 동남구 은행길 4 2층', '041-566-5341', 10000, '불가', '가능',  to_date('12:00','hh24:mi'), to_date('22:00','hh24:mi'), '쌀국수, 카나무끄럽, 꾸어이띠여우무남싸이, 팟씨유무');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '닥게리', '한식', 0, '충남 천안시 동남구 은행길 5-5', '041-566-1614', 8000, '가능', '가능',  to_date('11:00','hh24:mi'), to_date('23:00','hh24:mi'), '닥살물냉명, 닭곰탕, 닭개장');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '봉평옹심이메밀칼국수', '한식', 0, '충남 천안시 동남구 대흥로 215 백자빌딩 104호', '041-577-3889', 7000, '가능', '불가',  to_date('00:00','hh24:mi'), to_date('00:00','hh24:mi'), '메밀칼국수, 옹심이칼국수, 메밀전병');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '어거스트센트', '디저트', 0, '충남 천안시 동남구 공설시장2길 9-2', '010-5031-1903', 5000, '불가', '불가',  to_date('11:00','hh24:mi'), to_date('21:00','hh24:mi'), '드립커피, 아인슈페너, 꽃차');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '혁이샌드', '디저트', 0, '충남 천안시 동남구 은행길 5-4 흥흥발전소 1층', '010-3606-8259', 5000, '불가', '불가',  to_date('11:00','hh24:mi'), to_date('19:00','hh24:mi'), '에그마요 샌드위치, 참치마요 샌드위치, 커피');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '쥬씨 차얌', '디저트', 0, '충남 천안시 동남구 대흥로 231', '041-554-5001', 1000, '불가', '불가',  to_date('08:00','hh24:mi'), to_date('22:00','hh24:mi'), '생과일쥬스, 커피, 버블티');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '배스킨라빈스', '디저트', 0, '충남 천안시 동남구 대흥로 227-2 1층', '041-565-3335', 3000, '불가', '가능',  to_date('10:00','hh24:mi'), to_date('23:00','hh24:mi'), '아이스크림, 커피');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '티카페앙', '디저트', 0, '충남 천안시 동남구 은행길 5-4 1층', '010-2209-0727', 2000, '불가', '불가',  to_date('12:00','hh24:mi'), to_date('20:00','hh24:mi'), '커피, 화과자, 팥빙수');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '파스쿠찌', '디저트', 0, '충남 천안시 동남구 대흥로 235', '041-555-8497', 4000, '가능', '불가',  to_date('09:00','hh24:mi'), to_date('23:59','hh24:mi'), '커피, 티라미수');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '꽃처럼 너처럼', '디저트', 0, '충남 천안시 동남구 명동길 57', '010-2375-7037', 4000, '불가', '불가',  to_date('10:00','hh24:mi'), to_date('20:30','hh24:mi'), '커피, 쑥라떼');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '와플로', '디저트', 0, '충남 천안시 동남구 버들로 8', '010-2239-4502', 2000, '불가', '불가',  to_date('08:00','hh24:mi'), to_date('20:00','hh24:mi'), '커피, 와플');
+INSERT INTO famousRest
+VALUES (seq_famousrest_no.nextval, '헬로커피', '디저트', 0, '충남 천안시 동남구 대흥로 237', '041-567-7211', 2000, '불가', '불가',  to_date('00:00','hh24:mi'), to_date('00:00','hh24:mi'), '커피');
