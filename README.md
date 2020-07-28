@@ -6,6 +6,7 @@
 **DB.txt** : oracle SQL기반 DB 구축 방법
 
 ---
+
 <div style="text-align: center">
 
 | 팀원 | 역할 |
@@ -17,7 +18,9 @@
 | <span style="color:#FFB400">**박성필** | 로그인기능, 회원가입기능, 정보수정기능, DB구축 |
 | <span style="color:#FFB400">**김성원** | 전체적인 UI 관리 감독, 게시판기능, 로그인기능, DB구축 |
 </div>
+
 ---
+
 ## 구현 기능
 1. 로그인 및 회원가입 기능
     - [java파일](https://github.com/labory4302/K-Dragon_Project/tree/master/src/USER1)
@@ -31,6 +34,8 @@
 1. 게임 기능
     - [jsp파일](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/ladder)
 1. 채팅 기능
+
 ---
+
 ## 사이트 구조
 ![](https://github.com/labory4302/K-Dragon_Project/blob/master/site.jpg)
