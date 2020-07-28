@@ -25,3 +25,7 @@
 1. 게임 기능
     - [jsp파일](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/ladder)
 1. 채팅 기능
+---
+---
+## 사이트 구조
+![](https://github.com/labory4302/K-Dragon_Project/blob/master/사이트구조.jpg)
