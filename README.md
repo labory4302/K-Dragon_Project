@@ -22,18 +22,18 @@
 ---
 
 ## 구현 기능
-1. 로그인 및 회원가입 기능
+1. **로그인 및 회원가입 기능**
     - [java파일](https://github.com/labory4302/K-Dragon_Project/tree/master/src/USER1)
     - [jsp파일](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/login)
-1. 맛집 검색 및 리뷰 기능
+1. **맛집 검색 및 리뷰 기능**
     - [java파일](https://github.com/labory4302/K-Dragon_Project/tree/master/src/FamousRest)
     - [jsp파일](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/search)
-1. 게시판 기능
+1. **게시판 기능**
     - [java파일](https://github.com/labory4302/K-Dragon_Project/tree/master/src/food)
     - [jsp파일](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/board)
-1. 게임 기능
+1. **게임 기능**
     - [jsp파일](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/ladder)
-1. 채팅 기능
+1. **채팅 기능**
 
 ---
 
