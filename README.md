@@ -1,5 +1,6 @@
 # K-Dragon_Project 맛집 리뷰 사이트
-모블학원생들을 위한 맛집리뷰사이트입니다.
+모블학원생들을 위한 맛집리뷰사이트입니다.<br>
+[main.jsp부터 실행해주세요!](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/search)
 
 **WebContent** : jsp파일 모음<br>
 **src** : java파일 모음<br>
@@ -34,6 +35,7 @@
 1. **게임 기능**
     - [jsp파일](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/ladder)
 1. **채팅 기능**
+    - 포함되어있는 jsp파일([main, showFamousRestsForm, reviewForm,](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/search) [ladder](https://github.com/labory4302/K-Dragon_Project/tree/master/WebContent/ladder))
 
 ---
 
