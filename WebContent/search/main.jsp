@@ -148,18 +148,18 @@ margin-left: -300px;
 	<!-- 콘솔 메시지의 역할을 하는 로그 텍스트 에리어.(수신 메시지도 표시한다.) -->
 	<textarea id="messageTextArea" rows="10" cols="35"></textarea>
 		<br />
-		<form>
+
 		<!-- 유저 명을 입력하는 텍스트 박스(기본 값은 anonymous(익명)) -->
 
 		<!-- 송신 메시지를 작성하는 텍스트 박스 -->
-		<input id="textMessage" type="text">
+		<input id="textMessage" type="text" onkeydown="enterkey()">
 		<!-- 메세지를 송신하는 버튼 -->
 		<input onclick="sendMessage()" value="전송" type="button">
 		<!-- WebSocket 접속 종료하는 버튼 -->
 
 		<p id="chetmember_num"></p>
 
-	</form>
+	
 	</div>
 	<script type="text/javascript">
 		// 콘솔 텍스트 에리어 오브젝트
@@ -248,6 +248,13 @@ margin-left: -300px;
 			// 송신 메시지를 작성한 텍스트 박스를 초기화한다.
 			message.value = "";
 		}
+		
+		function enterkey() {
+	           if (event.keyCode == 13) {
+	              sendMessage();
+	           }
+	       }
+		
 		// Disconnect 버튼을 누르면 호출되는 함수
 		function disconnect() {
 			// WebSocket 접속 해제

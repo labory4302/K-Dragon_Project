@@ -253,25 +253,23 @@ th, td {
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
-	<%
-		if (userID != null) {
-	%>
-	<div id="chet_form">
-		<!-- 콘솔 메시지의 역할을 하는 로그 텍스트 에리어.(수신 메시지도 표시한다.) -->
-		<textarea id="messageTextArea" rows="10" cols="35"></textarea>
+	 <%if(userID!=null){ %>
+ 	<div id="chet_form">
+	<!-- 콘솔 메시지의 역할을 하는 로그 텍스트 에리어.(수신 메시지도 표시한다.) -->
+	<textarea id="messageTextArea" rows="10" cols="35"></textarea>
 		<br />
-		<form>
-			<!-- 유저 명을 입력하는 텍스트 박스(기본 값은 anonymous(익명)) -->
 
-			<!-- 송신 메시지를 작성하는 텍스트 박스 -->
-			<input id="textMessage" type="text">
-			<!-- 메세지를 송신하는 버튼 -->
-			<input onclick="sendMessage()" value="전송" type="button">
-			<!-- WebSocket 접속 종료하는 버튼 -->
+		<!-- 유저 명을 입력하는 텍스트 박스(기본 값은 anonymous(익명)) -->
 
-			<p id="chetmember_num"></p>
+		<!-- 송신 메시지를 작성하는 텍스트 박스 -->
+		<input id="textMessage" type="text" onkeydown="enterkey()">
+		<!-- 메세지를 송신하는 버튼 -->
+		<input onclick="sendMessage()" value="전송" type="button">
+		<!-- WebSocket 접속 종료하는 버튼 -->
 
-		</form>
+		<p id="chetmember_num"></p>
+
+	
 	</div>
 	<script type="text/javascript">
 		// 콘솔 텍스트 에리어 오브젝트
@@ -356,20 +354,23 @@ th, td {
 			messageTextArea.value += "<%=session.getAttribute("userID")%>" + "(사용자) => " + message.value
 					+ "\n";
 			// WebSocket 서버에 메시지를 전송(형식 「{{유저명}}메시지」)
-			webSocket.send("{{" + "<%=session.getAttribute("userID")%>
-		" + "}}"
-					+ message.value);
+			webSocket.send("{{" + "<%=session.getAttribute("userID")%>" + "}}" + message.value);
 			// 송신 메시지를 작성한 텍스트 박스를 초기화한다.
 			message.value = "";
 		}
+		
+		function enterkey() {
+	           if (event.keyCode == 13) {
+	              sendMessage();
+	           }
+	       }
+		
 		// Disconnect 버튼을 누르면 호출되는 함수
 		function disconnect() {
 			// WebSocket 접속 해제
 			webSocket.close();
 		}
 	</script>
-	<%
-		}
-	%>
+	<%} %>
 </body>
 </html>
