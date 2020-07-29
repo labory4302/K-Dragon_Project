@@ -400,6 +400,8 @@ p {
 			messageTextArea.value += msgdata_split[0] + "\n";
 			chetmember_num.innerText = "현재 접속 자 수는 " + msgdata_split[1] + 
 										"명 입니다";
+			
+			scrolldown();
 
 		};
 		// 웹 소켓 생성, 소켓을 여는 서버의 IP 주소와 톰캣 서버 포트 넣어줘야 합니다.
@@ -419,6 +421,7 @@ p {
 			webSocket.send("{{" + "<%=session.getAttribute("userID")%>" + "}}" + message.value);
 			// 송신 메시지를 작성한 텍스트 박스를 초기화한다.
 			message.value = "";
+			scrolldown();
 		}
 		
 		function enterkey() {
@@ -432,6 +435,11 @@ p {
 			// WebSocket 접속 해제
 			webSocket.close();
 		}
+		
+		function scrolldown(){
+	           var elem = document.getElementById('messageTextArea');
+	           elem.scrollTop = elem.scrollHeight;
+	       }
 	</script>
 	<%} %>
 </body>
